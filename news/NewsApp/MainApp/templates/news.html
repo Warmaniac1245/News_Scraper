@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News - {{ topic }}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+  <style>
+    .article {
+      margin-bottom: 20px;
+      display: flex;
+    }
+    .article img {
+      max-width: 150px;
+      height: auto;
+      margin-right: 20px;
+    }
+    .article-content {
+      flex-grow: 1;
+    }
+    .article .title {
+      font-size: 1.2rem;
+      margin-top: 0;
+    }
+    .article .subtitle {
+      font-size: 1rem;
+      color: #666;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <section class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          News for {{ topic }}
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-multiline">
+        {% for article in articles %}
+        <div class="column is-half">
+          <div class="article">
+            <a href="{{ article.url }}">
+              {% if article.image_url %}
+              <img src="{{ article.image_url }}" alt="{{ article.title }}">
+              {% endif %}
+            </a>
+            <div class="article-content">
+              <a href="{{ article.url }}" class="title">{{ article.title }}</a>
+              <p class="subtitle" style="margin-top: 5px;">{{ article.description }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+  </footer>
+</body>
+</html>

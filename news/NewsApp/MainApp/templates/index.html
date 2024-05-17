@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News App</title>
+</head>
+<body>
+  <h1>News App</h1>
+
+  {% if topic %} <h2>Selected Topic: {{ topic }}</h2>
+  {% endif %}
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}  # Render form fields using form.as_p
+    <button type="submit">Filter News</button>
+    {% if error_message %}
+      <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+  </form>
+
+  {% if articles %}  <h2>News Articles:</h2>
+    <ul>
+      {% for article in articles %}
+        <li>
+          <a href="{{ article.url }}">{{ article.title }}</a>
+          <p>{{ article.description }}</p>
+          <img src="{{ article.image_url }}" alt="{{ article.title }}">
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</body>
+</html>

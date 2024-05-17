@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=vx-2yu88sdqqqc-g4!u8wis&&$t=1f0)fwy268@e&9+i(2#kn'
+SECRET_KEY = 'YOUR SECRET_KEY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -127,5 +127,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # ... other Django settings
 
-NEWS_API_KEY = '090b815f574f4e23b1049fcbaa92c635'  # Replace with your News API key
+NEWS_API_KEY = 'YOUR_API_KEY'  # Replace with your News API key
 
